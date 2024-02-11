@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playground: JavaScript Classes</title>
+    <link rel="stylesheet" href="./style.css">
+    <script defer src="./article.js"></script>
+</head>
+<body>
+    
+    <div class="container flex">
+        <div class="controls flex fd-c">
+            <form action="" class="flex fd-c">
+                <label for="user_input">Title <span class="required">*</span></label>
+                <input type="text" name="user_input" id="user_input" maxlength="40" placeholder="max 40 chars">
+                
+                <label for="description">Description <span class="required">*</span></label>
+                <textarea name="description" id="description" cols="30" rows="5" maxlength="150" placeholder="max 150 chars"></textarea>
+
+                <label for="tags">Tags <span class="required">*</span></label>
+                <input type="text" name="tags" id="tags" placeholder="separated by comma">
+            </form>
+
+            <div class="buttons flex">
+                <button type="button">Add Article</button>
+                <select name="articles" id="articles">
+                </select>
+                <button type="button">Remove Article</button>
+            </div>
+        </div>
+        <div class="articles"></div>
+    </div>
+
+    </div>
+</body>
+</html>

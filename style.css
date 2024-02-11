@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: rgb(17, 231, 106);
+    font-family: Inter;
+}
+
+.flex {
+    display: flex;
+
+    &.jc-c {
+        justify-content: center;
+    }
+
+    &.ac-c {
+        align-items: center;
+    }
+
+    &.fd-c {
+        flex-direction: column;
+    }
+}
+
+div.container {
+    /* width: 60vw; */
+    height: max-content;
+    border-radius: 12px;
+    padding: 2rem;
+    gap: 3rem;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+div.articles {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5rem;
+
+    .article {
+        width: 20rem;
+        height: 14rem;
+        background-color: white;
+        padding: 1rem;
+        border-radius: 10px;
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+
+            span {
+                color: blue;
+            }
+        }
+    }
+
+    h2 {
+        margin: 0;
+    }
+}
+
+div.controls {
+    gap: 2rem;
+
+    button,
+    input,
+    textarea {
+        appearance: none;
+        border: none;
+        padding: 0.5rem;
+        border-radius: 8px;
+        outline: none;
+    }
+
+    input {
+        width: 20rem;
+    }
+    
+    button {
+        cursor: pointer;
+    }
+
+    .buttons {
+        /* align-self: flex-start; */
+        gap: 1rem;
+    }
+
+    form {
+        gap: 0.8rem;
+    }
+
+    textarea {
+        resize: none;
+    }
+}
+
+/* body div.container {
+    flex-direction: column;
+} */
