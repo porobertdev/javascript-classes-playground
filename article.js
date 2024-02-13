@@ -61,7 +61,7 @@ class Article {
         container.removeChild(article);
         selectMenu.removeChild(option);
         
-        delete this.database.db[selected];
+        delete this.database.db[option.textContent];
         
     }
 
