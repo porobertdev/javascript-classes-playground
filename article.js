@@ -1,14 +1,24 @@
-const database = {};
-
 const container = document.querySelector('.articles');
 
+class Database {
+    #database = {};
+
+    get db() {
+        console.log(this);
+        return this.#database;
+    }
+}
+
 class Article {
+
     constructor(title, date, tags, id) {
         this.title = title;
         this.date = date;
         this.tags = tags;
         this.id = id;
     }
+
+    static database = new Database();
 
     static sort() {
     }
@@ -18,9 +28,9 @@ class Article {
         const description = document.querySelector('#description').value;
         const tags = document.querySelector('#tags').value;
         const select = document.querySelector('select#articles');
-        const id = Object.keys(database).length + 1;
+        const id = Object.keys(this.database.db).length + 1;
 
-        database[title] = new Article(title, new Date(), tags, id);
+        this.database.db[title] = new Article(title, new Date(), tags, id);
         
         const html = document.createElement('div');
         html.classList = `article id-${id}`;
@@ -51,7 +61,7 @@ class Article {
         container.removeChild(article);
         selectMenu.removeChild(option);
         
-        delete database[selected];
+        delete this.database.db[selected];
         
     }
 
