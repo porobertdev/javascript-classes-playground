@@ -1,4 +1,8 @@
-const moment = require('moment');
+// const moment = require('moment');
+import moment from 'moment';
+
+console.log(`Testing momentjs module: ${moment().startOf('day').fromNow()}`);
+
 
 const container = document.querySelector('.articles');
 

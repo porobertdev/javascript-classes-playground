@@ -13,9 +13,10 @@
 /*!********************!*\
   !*** ./article.js ***!
   \********************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("const moment = __webpack_require__(/*! moment */ \"./node_modules/moment/moment.js\");\n\nconst container = document.querySelector('.articles');\n\nclass Database {\n    #database = {};\n\n    get db() {\n        console.log(this);\n        return this.#database;\n    }\n}\n\nclass Article {\n\n    constructor(title, date, tags, id) {\n        this.title = title;\n        this.date = date;\n        this.tags = tags;\n        this.id = id;\n    }\n\n    static database = new Database();\n\n    static sort() {\n    }\n\n    static add() {\n        const title = document.querySelector('#user_input').value;\n        const description = document.querySelector('#description').value;\n        const tags = document.querySelector('#tags').value;\n        const select = document.querySelector('select#articles');\n        const id = Object.keys(this.database.db).length + 1;\n\n        this.database.db[title] = new Article(title, new Date(), tags, id);\n        \n        const html = document.createElement('div');\n        html.classList = `article id-${id}`;\n\n        const content = document.createElement('div');\n        content.classList = 'content';\n        content.innerHTML = `\n            <h2>${title}</h2>\n            <p>${description}</p>\n            <span>${tags}</span>`;\n        html.appendChild(content);\n        container.appendChild(html);\n\n        const option = document.createElement('option');\n        option.setAttribute('value', `id-${id}`)\n        option.textContent = title;\n        select.appendChild(option);\n    }\n\n    static remove() {\n        const selectMenu = document.querySelector('select#articles');\n        const selected = selectMenu.value;\n        const option = document.querySelector(`option[value=\"${selected}\"]`);\n\n        const article = document.querySelector(`.article.${selected}`);\n        console.log(article);\n        console.log(option);\n        container.removeChild(article);\n        selectMenu.removeChild(option);\n        \n        delete this.database.db[option.textContent];\n        \n    }\n\n    static {\n        // Static Initialization Block\n        // executes everything on class declaration\n\n        const buttons = document.querySelectorAll('button');\n        buttons.forEach( btn => {\n            btn.addEventListener('click', (e) => {\n                const value = e.target.textContent.toLowerCase();\n                console.log(e);\n\n                switch (true) {\n                    case (value.includes('add')):\n                        this.add();\n                        break;\n                    case (value.includes('remove')):\n                        this.remove();\n                }\n            });\n        })\n    }\n}\n\n//# sourceURL=webpack://git/./article.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ \"./node_modules/moment/moment.js\");\n/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);\n// const moment = require('moment');\n\n\nconsole.log(`Testing momentjs module: ${moment__WEBPACK_IMPORTED_MODULE_0___default()().startOf('day').fromNow()}`);\n\n\nconst container = document.querySelector('.articles');\n\nclass Database {\n    #database = {};\n\n    get db() {\n        console.log(this);\n        return this.#database;\n    }\n}\n\nclass Article {\n\n    constructor(title, date, tags, id) {\n        this.title = title;\n        this.date = date;\n        this.tags = tags;\n        this.id = id;\n    }\n\n    static database = new Database();\n\n    static sort() {\n    }\n\n    static add() {\n        const title = document.querySelector('#user_input').value;\n        const description = document.querySelector('#description').value;\n        const tags = document.querySelector('#tags').value;\n        const select = document.querySelector('select#articles');\n        const id = Object.keys(this.database.db).length + 1;\n\n        this.database.db[title] = new Article(title, new Date(), tags, id);\n        \n        const html = document.createElement('div');\n        html.classList = `article id-${id}`;\n\n        const content = document.createElement('div');\n        content.classList = 'content';\n        content.innerHTML = `\n            <h2>${title}</h2>\n            <p>${description}</p>\n            <span>${tags}</span>`;\n        html.appendChild(content);\n        container.appendChild(html);\n\n        const option = document.createElement('option');\n        option.setAttribute('value', `id-${id}`)\n        option.textContent = title;\n        select.appendChild(option);\n    }\n\n    static remove() {\n        const selectMenu = document.querySelector('select#articles');\n        const selected = selectMenu.value;\n        const option = document.querySelector(`option[value=\"${selected}\"]`);\n\n        const article = document.querySelector(`.article.${selected}`);\n        console.log(article);\n        console.log(option);\n        container.removeChild(article);\n        selectMenu.removeChild(option);\n        \n        delete this.database.db[option.textContent];\n        \n    }\n\n    static {\n        // Static Initialization Block\n        // executes everything on class declaration\n\n        const buttons = document.querySelectorAll('button');\n        buttons.forEach( btn => {\n            btn.addEventListener('click', (e) => {\n                const value = e.target.textContent.toLowerCase();\n                console.log(e);\n\n                switch (true) {\n                    case (value.includes('add')):\n                        this.add();\n                        break;\n                    case (value.includes('remove')):\n                        this.remove();\n                }\n            });\n        })\n    }\n}\n\n//# sourceURL=webpack://git/./article.js?");
 
 /***/ }),
 
@@ -1439,9 +1440,44 @@ eval("/* module decorator */ module = __webpack_require__.nmd(module);\n//! mome
 /******/ 	}
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/node module decorator */
