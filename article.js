@@ -1,3 +1,5 @@
+const moment = require('moment');
+
 const container = document.querySelector('.articles');
 
 class Database {
