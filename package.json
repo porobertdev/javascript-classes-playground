@@ -4,7 +4,10 @@
   "description": "I'm just testing ES6 modules as I learn about them.",
   "main": "article.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-prod": "webpack --progress --mode=production",
+    "build-dev": "webpack --progress --mode=development",
+    "watch": "webpack --progress --watch"
   },
   "author": "porobertdev",
   "license": "ISC",
